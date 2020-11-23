@@ -2,6 +2,7 @@ package ru.itsjava.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.itsjava.domain.User;
 import ru.itsjava.repository.UserRepository;
 
@@ -22,8 +23,9 @@ public class UserServiceImpl implements UserService {
         return repository.getAll();
     }
 
+    @Transactional
     @Override
     public void save(User user) {
-        repository.save(user);
+        repository.updateUser(user);
     }
 }

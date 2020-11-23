@@ -30,4 +30,11 @@ public class UserRepositoryImpl implements UserRepository{
         entityManager.persist(user);
         return user;
     }
+
+    @Override
+    public void updateUser(User user) {
+
+            entityManager.merge(user);
+
+    }
 }
